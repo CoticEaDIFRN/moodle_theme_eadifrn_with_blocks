@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme Boost eadifrn_with_blocks - Library
+ * Theme Boost eadifrn with blocks - Library
  *
  * @package    theme_boost_eadifrn_with_blocks
  * @copyright  2017 Kathrin Osswald, Ulm University <kathrin.osswald@uni-ulm.de>
@@ -44,6 +44,10 @@ function theme_boost_eadifrn_with_blocks_get_main_scss_content($theme) {
     } else if ($filename == 'eadifrn_with_blocks.scss') {
         // We still load the default preset files directly from the boost theme. No sense in duplicating them.
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost_eadifrn_with_blocks/scss/preset/eadifrn_with_blocks.scss');
+
+    } else if ($filename == 'eadifrn_presencial.scss') {
+        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_eadifrn_with_blocks/scss/preset/eadifrn_presencial.scss');
 
     } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_boost_eadifrn_with_blocks', 'preset', 0, '/', $filename))) {
         // This preset file was fetched from the file area for theme_boost_eadifrn_with_blocks and not theme_boost (see the line above).
@@ -159,9 +163,9 @@ function theme_boost_eadifrn_with_blocks_pluginfile($course, $cm, $context, $fil
  */
 function theme_boost_eadifrn_with_blocks_reset_app_cache() {
     // Get the cache from area.
-    $themeboosteadifrn_with_blockscache = cache::make('theme_boost_eadifrn_with_blocks', 'imagearea');
+    $themeboosteadifrncache = cache::make('theme_boost_eadifrn_with_blocks', 'imagearea');
     // Delete the cache for the imagearea.
-    $themeboosteadifrn_with_blockscache->delete('imageareadata');
+    $themeboosteadifrncache->delete('imageareadata');
     // To be safe and because there can only be one callback function added to a plugin setting,
     // we also delete the complete theme cache here.
     theme_reset_all_caches();

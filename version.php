@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme Boost eadifrn_with_blocks - Version file
+ * Theme Boost eadifrn with blocks - Version file
  *
  * @package    theme_boost_eadifrn_with_blocks
  * @copyright  2017 Kathrin Osswald, Ulm University <kathrin.osswald@uni-ulm.de>

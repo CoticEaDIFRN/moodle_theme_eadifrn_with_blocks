@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme Boost eadifrn_with_blocks - Language pack
+ * Theme Boost eadifrn with blocks - Language pack
  *
  * @package    theme_boost_eadifrn_with_blocks
  * @copyright  2017 Kathrin Osswald, Ulm University <kathrin.osswald@uni-ulm.de>
@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 // GENERAL.
 $string['pluginname'] = 'Boost eadifrn with blocks';
-$string['choosereadme'] = 'Theme Boost eadifrn with blocks is a child theme to be used on university eadifrn with blockses.';
+$string['choosereadme'] = 'Theme Boost eadifrn with blocks is a child theme to be used on university eadifrnes.';
 
 // SETTINGS.
 $string['configtitle'] = 'Boost eadifrn with blocks settings';

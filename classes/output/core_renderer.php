@@ -27,12 +27,12 @@
  * PHP Version 7
  * 
  * @category  MoodleTheme
- * @package   Theme_Boost_EadIfrn.Classes.Output
+ * @package   Theme_boost_eadifrn_with_blocks.Classes.Output
  * @author    Sueldo Sales <sueldosales@gmail.com>
  * @author    Kelson C. Medeiros <kelsoncm@gmail.com>
  * @copyright 2017 IFRN
  * @license   MIT https://opensource.org/licenses/MIT    
- * @link      https://github.com/CoticEaDIFRN/eadifrn_with_blocks
+ * @link      https://github.com/CoticEaDIFRN/eadifrn
  */
 
 namespace theme_boost_eadifrn_with_blocks\output;
@@ -67,12 +67,12 @@ defined('MOODLE_INTERNAL') || die;
  * lib/outputrenderers.php --> core_renderer
  * 
  * @category  Renderer
- * @package   Theme_Boost_EadIfrn.Classes.Output
+ * @package   Theme_boost_eadifrn_with_blocks.Classes.Output
  * @author    Sueldo Sales <sueldosales@gmail.com>
  * @author    Kelson C. Medeiros <kelsoncm@gmail.com>
  * @copyright 2017 IFRN
  * @license   MIT https://opensource.org/licenses/MIT    
- * @link      https://github.com/CoticEaDIFRN/eadifrn_with_blocks
+ * @link      https://github.com/CoticEaDIFRN/eadifrn
  */
 class core_renderer extends \theme_boost\output\core_renderer {
 
@@ -83,6 +83,34 @@ class core_renderer extends \theme_boost\output\core_renderer {
      */
     public function header() {
         return parent::header();
+    }
+
+    public function navbar() {
+        $items = $this->page->navbar->get_items();
+        $itemcount = count($items);
+        // if ($v === 0) {
+        //     return '';
+        // }
+
+        $pagepath = get_string('pagepath');
+        $separator = get_separator();
+
+        $navbarcontent = "<span class='accesshide' id='navbar-label'>$pagepath</span>"; //accessibility: heading for navbar list  (MDL-20446)
+        $navbarcontent .= "<nav aria-labelledby='navbar-label' role='navigation'>";
+        $navbarcontent .= "<ol class='breadcrumb'>";
+        for ($i=0;$i < $itemcount;$i++) {
+            $item = $items[$i];
+            $text = $i==0 ? "Salas de aula" : $item->title ?: $item->text;
+            // $text = preg_replace('\[\d*\*\]', '', $text);
+            // $show_separator = $i==0 ? "" : $separator;
+            if ($text != "Meus cursos") {
+                // var_dump($item);
+                $url = empty($item->action) ? "" : $item->action;
+                $navbarcontent .= "<li class='breadcrumb-item'><a href='$url'>{$text}</a></li>";
+            }
+        }
+        $navbarcontent .= '</ol></nav>';
+        return $navbarcontent;
     }
 
     /**
@@ -105,6 +133,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
         // $output .= $this->header_help();
         $output .= $this->header_notification();
         $output .= $this->header_admin();
+        // $output .= $this->header_pagetitle();
+        return $output;
+    }
+
+    public function navbar_pagetitle_output() {
+        $output = '';
         $output .= $this->header_pagetitle();
         return $output;
     }
@@ -478,7 +512,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $pagetitle = "Administração";
         }
 
-        return '<p id="navbar_pagetitle" class="hidden-sm-down">'. $pagetitle .'</p>';
+        return '<p id="navbar_pagetitle" class="d-none d-sm-none d-md-block">'. $pagetitle .'</p>';
     }
 
     protected function header_help() {

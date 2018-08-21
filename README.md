@@ -1,4 +1,4 @@
-# moodle_theme_eadifrn_with_blocks
-Tema para o Moodle 3.X inspirado no Tema Boost
+# moodle_theme_eadifrn
+Tema para o Moodle 3.4 herdado no Tema Boost. No Moodle 3.5 houve uma quebra de funcionalidade em relação às anteriores.
 
-git clone https://github.com/CoticEaDIFRN/moodle_theme_eadifrn_with_blocks.git boost_eadifrn_with_blocks
+git clone https://github.com/CoticEaDIFRN/moodle_theme_eadifrn.git boost_eadifrn_with_blocks

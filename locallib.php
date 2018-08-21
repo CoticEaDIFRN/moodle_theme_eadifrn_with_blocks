@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
- * Theme Boost eadifrn_with_blocks - Locallib file
+ * Theme Boost eadifrn with blocks - Locallib file
  *
  * @package   theme_boost_eadifrn_with_blocks
  * @copyright 2017 Kathrin Osswald, Ulm University kathrin.osswald@uni-ulm.de
@@ -95,9 +95,9 @@
 //  */
 // function theme_boost_eadifrn_with_blocks_get_imageareacontent() {
 //     // Get cache.
-//     $themeboosteadifrn_with_blockscache = cache::make('theme_boost_eadifrn_with_blocks', 'imagearea');
+//     $themeboosteadifrncache = cache::make('theme_boost_eadifrn_with_blocks', 'imagearea');
 //     // If cache is filled, return the cache.
-//     $cachecontent = $themeboosteadifrn_with_blockscache->get('imageareadata');
+//     $cachecontent = $themeboosteadifrncache->get('imageareadata');
 //     if (!empty($cachecontent)) {
 //         return $cachecontent;
 //     } else { // Create cache.
@@ -145,11 +145,11 @@
 //                     // Set the file and the corresponding link.
 //                     $imageareacache[] = array('filepath' => $filepath, 'linkpath' => $links[$filename]);
 //                     // Fill the cache.
-//                     $themeboosteadifrn_with_blockscache->set('imageareadata', $imageareacache);
+//                     $themeboosteadifrncache->set('imageareadata', $imageareacache);
 //                 } else { // Just add the file without a link.
 //                     $imageareacache[] = array('filepath' => $filepath);
 //                     // Fill the cache.
-//                     $themeboosteadifrn_with_blockscache->set('imageareadata', $imageareacache);
+//                     $themeboosteadifrncache->set('imageareadata', $imageareacache);
 //                 }
 //             }
 //             // Sort array alphabetically ascending to the key "filepath".
@@ -158,7 +158,7 @@
 //             });
 //             return $imageareacache;
 //         } else { // If no images are uploaded, then cache an empty array.
-//             return $themeboosteadifrn_with_blockscache->set('imageareadata', array());
+//             return $themeboosteadifrncache->set('imageareadata', array());
 //         }
 //     }
 // }

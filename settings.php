@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme Boost eadifrn_with_blocks - Settings file
+ * Theme Boost eadifrn with blocks - Settings file
  *
  * @package    theme_boost_eadifrn_with_blocks
  * @copyright  2017 Kathrin Osswald, Ulm University <kathrin.osswald@uni-ulm.de>
@@ -60,6 +60,7 @@ if ($ADMIN->fulltree) {
     $choices['default.scss'] = 'default.scss';
     $choices['plain.scss'] = 'plain.scss';
     $choices['eadifrn_with_blocks.scss'] = 'eadifrn_with_blocks.scss';
+    $choices['eadifrn_presencial.scss'] = 'eadifrn_presencial.scss';
     
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
